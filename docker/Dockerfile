@@ -17,9 +17,6 @@ RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && \
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && \
     chmod 0600 ~/.ssh/authorized_keys
 
-ADD ./docker/entrypoint.sh /entrypoint.sh
-
-
 ENV HADOOP_USER=hadoop
 RUN useradd -ms /bin/bash $HADOOP_USER
 # RUN chown -R $HADOOP_USER $HADOOP_HOME
@@ -33,8 +30,17 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 ENV HADOOP_VERSION=3.4.0
 RUN echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre" >> /hadoop/etc/hadoop/hadoop-env.sh
 
+ENV HIVE_HOME=$HADOOP_HOME/apache-hive-4.0.0-bin
+RUN wget https://dlcdn.apache.org/hive/hive-4.0.0/apache-hive-4.0.0-bin.tar.gz && \
+    tar -xvzf apache-hive-4.0.0-bin.tar.gz -C $HADOOP_HOME && \
+    chmod -R 777 $HIVE_HOME && \
+    rm apache-hive-4.0.0-bin.tar.gz
+
+# RUN $HIVE_HOME/bin/schematool -dbType derby -initSchema
+
 USER $HADOOP_USER
 WORKDIR /home/$HADOOP_USER
 
+ADD ./docker/entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
