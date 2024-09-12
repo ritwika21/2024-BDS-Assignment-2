@@ -4,6 +4,9 @@ Documentation for hadoop [reference](https://hadoop.apache.org/docs/stable/hadoo
 
 Documentation for HIVE [reference](https://phoenixnap.com/kb/install-hive-on-ubuntu)
 
+## Submission document
+link: [submission document](https://wilpbitspilaniacin0-my.sharepoint.com/:w:/g/personal/2022dc04304_wilp_bits-pilani_ac_in/Ef8aJrUkVpxKnIhSKV5M3tcBsPqjTN3J16wDPg4fMelu5w?e=WO7ls6)
+
 ## Build commands
 Build Image
 ```bash
@@ -52,3 +55,4 @@ Calculate unique-customers in a country (We have used "United Kingdom" for this 
 ```bash
 ./docker/exec.sh bash
 ```
+
