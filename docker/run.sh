@@ -14,5 +14,7 @@ docker run \
     -v ./docker/entrypoint.sh:/entrypoint.sh \
     -v ./docker/start-services.sh:/start-services.sh \
     -v ./docker/hive.sh:/hive.sh \
+    -v ./docker/load-data.sh:/load-data.sh \
+    -v ./docker/load-csv.sql:/load-csv.sql \
     hadoop \
     "$@"

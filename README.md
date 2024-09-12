@@ -17,7 +17,21 @@ Build Image
 ./docker/run.sh /start-services.sh
 ```
 
-2. Hive shell
+2. Load data
+```bash
+./docker/exec.sh /load-data.sh
+```
+
+3. use Hive shell to run queries
 ```bash
 ./docker/exec.sh /hive.sh
+```
+
+Some basic queries 
+```sql
+SELECT * FROM online_retail_data LIMIT 10;
+```
+
+```sql
+SELECT SUM(quantity) AS total_quantity FROM online_retail_data;
 ```
