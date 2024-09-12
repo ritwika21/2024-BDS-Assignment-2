@@ -11,7 +11,8 @@ def main():
         customer_id = fields[7]
         country = fields[8]
         if country == 'United Kingdom':
-            unique_customers.add(customer_id)
+            if customer_id.strip() != '':
+                unique_customers.add(customer_id)
         
     print(f"unique_customers\t{','.join(unique_customers)}")
 

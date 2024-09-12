@@ -10,7 +10,7 @@ def main():
         key, value = line.split('\t')
         if key == 'unique_customers':
             for customer_id in value.split(","):
-                unique_customers.add(customer_id)
+                unique_customers.add(int(customer_id))
     
     print(f"number_of_unique_customers\t{len(unique_customers)}")
 

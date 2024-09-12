@@ -2,8 +2,9 @@ docker run \
     --name bds \
     -h 'localhost' \
     --rm -it \
-    -p 9870:9870 \
+    -p 8042:8042 \
     -p 8088:8088 \
+    -p 9870:9870 \
     -v ./data:/data \
     -v ./docker/configs/hadoop/core-site.xml:/hadoop/etc/hadoop/core-site.xml \
     -v ./docker/configs/hadoop/hdfs-site.xml:/hadoop/etc/hadoop/hdfs-site.xml \

@@ -18,7 +18,6 @@ Build Image
 ```
 **You can now leave this terminal window open and start a new terminal window for next operations**
 
-
 2. Load data
 ```bash
 ./docker/exec.sh /load-data.sh
@@ -36,6 +35,10 @@ SELECT * FROM online_retail_data LIMIT 10;
 
 ```sql
 SELECT SUM(quantity) AS total_quantity FROM online_retail_data;
+```
+
+```sql
+SELECT COUNT(DISTINCT(customer_id)) AS unique_customers FROM online_retail_data WHERE country='United Kingdom';
 ```
 
 4. Execute mapreduce code
