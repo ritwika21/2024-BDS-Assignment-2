@@ -16,13 +16,15 @@ Build Image
 ```bash
 ./docker/run.sh /start-services.sh
 ```
+**You can now leave this terminal window open and start a new terminal window for next operations**
+
 
 2. Load data
 ```bash
 ./docker/exec.sh /load-data.sh
 ```
 
-3. use Hive shell to run queries
+3. Use Hive shell to run queries
 ```bash
 ./docker/exec.sh /hive.sh
 ```
@@ -34,4 +36,16 @@ SELECT * FROM online_retail_data LIMIT 10;
 
 ```sql
 SELECT SUM(quantity) AS total_quantity FROM online_retail_data;
+```
+
+4. Execute mapreduce code
+Calculate unique-customers in a country (We have used "United Kingdom" for this query).
+```bash
+./docker/exec.sh /mapreducer/unique-customers/unique-customers.sh
+```
+
+
+4. For any debug task please use
+```bash
+./docker/exec.sh bash
 ```

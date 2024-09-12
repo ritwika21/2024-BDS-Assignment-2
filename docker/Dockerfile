@@ -19,7 +19,6 @@ RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && \
 
 ENV HADOOP_USER=hadoop
 RUN useradd -ms /bin/bash $HADOOP_USER
-# RUN chown -R $HADOOP_USER $HADOOP_HOME
 RUN cp -r ~/.ssh /home/$HADOOP_USER
 RUN chown -R $HADOOP_USER /home/$HADOOP_USER/.ssh
 
@@ -36,7 +35,7 @@ RUN wget https://dlcdn.apache.org/hive/hive-4.0.0/apache-hive-4.0.0-bin.tar.gz &
     chmod -R 777 $HIVE_HOME && \
     rm apache-hive-4.0.0-bin.tar.gz
 
-# RUN $HIVE_HOME/bin/schematool -dbType derby -initSchema
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 USER $HADOOP_USER
 WORKDIR /home/$HADOOP_USER

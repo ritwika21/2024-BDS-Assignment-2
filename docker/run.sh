@@ -15,6 +15,7 @@ docker run \
     -v ./docker/start-services.sh:/start-services.sh \
     -v ./docker/hive.sh:/hive.sh \
     -v ./docker/load-data.sh:/load-data.sh \
-    -v ./docker/load-csv.sql:/load-csv.sql \
+    -v ./sql/load-csv.sql:/sql/load-csv.sql \
+    -v ./mapreducer:/mapreducer \
     hadoop \
     "$@"
